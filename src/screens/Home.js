@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView,Text } from 'react-native';
 import {styles} from '../styles/mainstyles';
 
-export default Home = () => {
+export default function Home() {
 
 
     return(

@@ -9,4 +9,15 @@ export const styles = StyleSheet.create({
         justifyContent:'center'
 
     }
+
 });
+
+export const tabBarOptions = {
+    tabBarInactiveTintColor: '#2D3038',
+    tabBarActiveTintColor: '#FFFFFF',
+
+    tabBarStyle: {
+      height: '8%',
+      backgroundColor: '#1E1B26',
+    }
+  };
