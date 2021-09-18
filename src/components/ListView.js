@@ -34,10 +34,15 @@ const RenderItem = ({item,index,archivize}) => {
         <Swipeable onSwipeableLeftOpen={()=>{archivize(item)}} renderLeftActions={RenderRight}>
         <View style={styles.item}>
             <Text style={{fontWeight:'600'}}>{item.title}</Text>
-            <View>
-              
-                <Text style={{fontWeight:'400'}}>Amount: {item.amount}</Text>
-            </View>
+ 
+                <View style={styles.amountView}>
+                
+                    <Text style={{fontWeight:'200'}}>Amount: {item.amount}</Text>
+                    <Text>Time</Text>
+
+                </View>
+            
+            
         </View>
 
         </Swipeable>

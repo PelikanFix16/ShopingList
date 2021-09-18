@@ -1,16 +1,12 @@
 export const GET_LIST = "GET_LIST";
 export const ADD_TO_LIST = "ADD_TO_LIST";
 export const CHANGE_TO_ARCHIVE = "CHANGE_TO_ARCHIVE";
+export const GET_ARCHIVE_LIST = "GET_ARCHIVE_LIST";
+
 
 
 export const getList = () => {
-   /* let list = [
-    {title:"Kapusta",checked:false,archive:false,amount:2,id:"1"},
-    {title:"Marchew",checked:false,archive:false,amount:2,id:"2"},
-    {title:"Mielonka",checked:false,archive:false,amount:2,id:"3"},
-    {title:"Pomidory",checked:false,archive:false,amount:2,id:"4"},
-    {title:"Melon",checked:false,archive:false,amount:2,id:"5"}]
-*/
+  
     return dispatch => {
         dispatch({
             type:GET_LIST,
@@ -19,8 +15,9 @@ export const getList = () => {
     } 
 }
 
+
+
 export const changeToArchive = item => {
-    item.archive = true;
     return dispatch=>{
         dispatch({
             type:CHANGE_TO_ARCHIVE,
@@ -30,7 +27,6 @@ export const changeToArchive = item => {
 }
 
 export const addToList = item => {
-    console.log(item);
     return dispatch=>{
 
         dispatch({
@@ -39,3 +35,15 @@ export const addToList = item => {
         })
     }
 }
+
+export const getArchiveList = () => {
+  
+    return dispatch => {
+        dispatch({
+            type:GET_LIST,
+            payload:[]
+        });
+    } 
+}
+
+

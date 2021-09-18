@@ -4,9 +4,9 @@ import { styles } from '../styles/mainstyles';
 import CircleButton from '../components/Button';
 import Counter from '../components/Counter';
 import { addToList } from '../redux/actions';
-import { useDispatch } from 'react-redux';
 import uuidv4 from '../Utils/uuid';
 import { navigate } from '../navigation/navigationRef';
+import { AddDispatcher } from '../redux/dispatcher';
 
 
 
@@ -29,10 +29,9 @@ const Add = () => {
     const [showAmount,setShowAmount] = useState(false);
     const [counter,setCounter] = useState(0);
     const [title,setTitle] = useState("");
-    const dispatch = useDispatch();
+
     let item = {
         title:title,
-        archive:false,
         amount:counter,
         id:uuidv4(),
         time: Date.now()
@@ -40,7 +39,7 @@ const Add = () => {
     const toList = item=>{
         
     
-        dispatch(addToList(item));
+        AddDispatcher(item);
         setCounter(0);
         setTitle("");
         setShowAmount(false);

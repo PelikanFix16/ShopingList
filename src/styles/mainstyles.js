@@ -80,7 +80,16 @@ export const styles = StyleSheet.create({
        
         
 
+    },
+    time:{
+       textAlign:"right",
+       right:0
+    },
+    amountView:{
+        flexDirection:"row",
+        justifyContent:"space-between"
     }
+
 
 
 

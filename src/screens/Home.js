@@ -5,19 +5,20 @@ import { AntDesign,MaterialIcons } from '@expo/vector-icons';
 import { useSelector,useDispatch } from 'react-redux';
 import { getList,changeToArchive } from '../redux/actions';
 import RenderItem from '../components/ListView';
+import { ArchivizeDispatcher } from '../redux/dispatcher';
 
 
 
 
 export default function Home() {
 
-    const {list} = useSelector(state=>state.listReducer);
+    const {list,archive} = useSelector(state=>state.listReducer);
     const dispatch = useDispatch();
     const fetchList = () => dispatch(getList());
-    const changeArchive = (item) => dispatch(changeToArchive(item));
+
 
     const handleArchive = item => {
-        changeArchive(item);
+        ArchivizeDispatcher(item);
     }
    
 
@@ -25,6 +26,8 @@ export default function Home() {
         fetchList();
 
     },[])
+
+
 
 
 
