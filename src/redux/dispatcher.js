@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getList,changeToArchive ,addToList} from '../redux/actions';
+import { changeToArchive ,addToList,deleteFromArchive} from '../redux/actions';
 import { store } from './store';
 
 
@@ -17,3 +17,8 @@ export const AddDispatcher = (item) => {
     
     store.dispatch(addToList(item));
 }
+
+export const DeleteArchiveDispatcher = (item) => {
+    store.dispatch(deleteFromArchive(item));
+}
+

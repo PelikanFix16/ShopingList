@@ -1,4 +1,4 @@
-import { GET_LIST,CHANGE_TO_ARCHIVE, ADD_TO_LIST,GET_ARCHIVE_LIST } from "./actions";
+import { GET_LIST,CHANGE_TO_ARCHIVE, ADD_TO_LIST,DELETE_FROM_ARCHIVE } from "./actions";
 
 const initialState = []
 
@@ -19,6 +19,13 @@ function listReducer(state=initialState,action){
                  ...state,list:state.list.filter(item=>item !== action.payload),
                  archive:[...state.archive,action.payload]
                 }
+
+        case DELETE_FROM_ARCHIVE:
+            console.log(state);
+            return {
+                ...state,archive:state.archive.filter(item=>item !== action.payload),
+                list:[...state.list,action.payload]
+               }
 
         case ADD_TO_LIST:
             return {...state,list:[...state.list,action.payload]}

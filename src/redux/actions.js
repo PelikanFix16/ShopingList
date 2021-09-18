@@ -1,7 +1,7 @@
 export const GET_LIST = "GET_LIST";
 export const ADD_TO_LIST = "ADD_TO_LIST";
 export const CHANGE_TO_ARCHIVE = "CHANGE_TO_ARCHIVE";
-export const GET_ARCHIVE_LIST = "GET_ARCHIVE_LIST";
+export const DELETE_FROM_ARCHIVE = "DELETE_FROM_ARCHIVE";
 
 
 
@@ -36,14 +36,13 @@ export const addToList = item => {
     }
 }
 
-export const getArchiveList = () => {
-  
-    return dispatch => {
+export const deleteFromArchive = item => {
+    return dispatch=>{
         dispatch({
-            type:GET_LIST,
-            payload:[]
-        });
-    } 
+            type:DELETE_FROM_ARCHIVE,
+            payload:item
+        })
+    }
 }
 
 
