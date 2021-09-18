@@ -1,35 +1,12 @@
-import React,{useEffect} from 'react';
-import { SafeAreaView,Text,FlatList,View,CheckBox,Dimensions,TouchableOpacity } from 'react-native';
+import React,{useEffect,useState} from 'react';
+import { SafeAreaView,Text,FlatList,View,CheckBox,Dimensions,TouchableOpacity,ScrollView,LayoutAnimation } from 'react-native';
 import {styles} from '../styles/mainstyles';
 import { AntDesign,MaterialIcons } from '@expo/vector-icons'; 
 import { useSelector,useDispatch } from 'react-redux';
 import { getList,changeToArchive } from '../redux/actions';
+import RenderItem from '../components/ListView';
 
 
-const Item = (props) => {
-
-    return (
-    <View style={styles.listItem}>
-        <Text style={styles.listItemText}>{props.amount}</Text>
-        <Text style={styles.listItemText}>x</Text>
-        <Text style={styles.listItemText}>{props.title}</Text>
-         { props.archive == 0 && <AntDesign name="edit" color="#595959" size={30} style={styles.iconEdit}/> }
-    </View>
-    )
-}
-
-const renderItem = (item,handle) => {
-
-
-
-
-    return (
-        <TouchableOpacity onPress={()=>handle(item)}>
-        <Item title={item.title} checked={item.checked} amount={item.amount} archive={item.archive}/>
-        </TouchableOpacity>
-
-    )
-}
 
 
 export default function Home() {
@@ -49,20 +26,11 @@ export default function Home() {
 
     },[])
 
-    
-    
 
-    console.log(list); 
 
     return(
         <SafeAreaView style={styles.container}>
-            <View style={styles.dateSortContainer}>
-                <View style={styles.dateSortBox}>
-                    <Text>Date Sort</Text>
-                    <MaterialIcons name="arrow-drop-down" size={20} color="black" />
-                </View>
-            </View>
-            <FlatList style={styles.flatListStyle} data={list} renderItem={(item)=>renderItem(item,handleArchive)} keyExtractor={item=>item.id}/>
+           <FlatList data={list} renderItem={({item,index})=><RenderItem archivize={handleArchive} item={item} index={index}/>}/>
         </SafeAreaView>
     );
 

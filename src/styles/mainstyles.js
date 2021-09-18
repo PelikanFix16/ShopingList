@@ -5,72 +5,84 @@ export const styles = StyleSheet.create({
     container:{
         flex:1,
         backgroundColor:'#ffffff',
-        alignItems:'center',
-        justifyContent:'center',
-
-
+      
     },
-    dateSortContainer:{
-        width:"100%",
-        height:"20px",
-        alignItems:"center",
-        justifyContent:"center",
-        top:"10px"
-    },
-    dateSortBox:{
-        width:"50%",
-        height:"100%",
+    item:{
+        padding:15,
+        backgroundColor:"#fff",
+        shadowColor:"#ccc",
+        shadowOffset:{width:3,height:3},
+        shadowOpacity:0.9,
+        marginVertical:10,
         flex:1,
-        flexDirection:"row",
+
+    },
+    animatedContainer:{
+        backgroundColor:"#8afb65",
         alignItems:"center",
         justifyContent:"center"
-        
     },
-
-    flatListStyle:{
-        marginTop:"5%",
-        width:"100%"
-    },
-    listItemText:{
-        fontSize:"20px",
-        marginLeft:"10px",
-        color:"#595959"
-    },
-    listItem:{
-        flexDirection:"row",
-        marginBottom:"1%",
-        justifyContent:"left",
+    addContainer:{
+        justifyContent:"flex-start",
         alignItems:"center",
+        flex:1,
+        marginTop:"50px"
+
+        
+    },
+    addTextStyle:{
+        color:"#a6a6a6",
+        fontSize:"30px",
+        fontWeight:300,
+
+    },
+    textInput:{
+       borderBottomWidth:1,
+       borderColor:"#d9d9d9",
+       marginTop:"20px",
+       textAlign:"center",
+       width:"60%",
+       fontWeight:300
+
+    },
+    circleButton:{
+        width:"50px",
         height:"50px",
-        borderRadius:"10px",
-        borderBottomWidth:1,
-        borderBottomColor:"#a6a6a6",
-        backgroundColor:"#f2f2f2",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.30,
-        shadowRadius: 4.65,
-
-        elevation: 8,
-    
-        
-    },
-    checkBox:{
-
-        width:"30px",
-        height:"30px",
-        marginRight:"5%",
-        marginLeft:"1%",
-    
-        
-    },
-    iconEdit:{
         position:"absolute",
-        left:"90%"
+        bottom:"0px",
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center",
+        borderRadius:100,
+        padding:10,
+    },
+    counterView:{
+        flex:1,
+        flexDirection:"row",
+        marginTop:"50px"
+
+    },
+    counterButton:{
+   
+        justifyContent:"center",
+        alignItems:"center",
+        height:"50%",
+      
+
+    },
+    counterText:{
+        fontSize:"40px",
+        fontWeight:200,
+        alignItems:"center",
+        marginRight:"30px",
+        marginLeft:"30px"
+    
+       
+        
+
     }
+
+
 
 
 });
