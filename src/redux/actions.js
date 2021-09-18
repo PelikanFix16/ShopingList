@@ -3,7 +3,7 @@ export const ADD_TO_LIST = "ADD_TO_LIST";
 export const CHANGE_TO_ARCHIVE = "CHANGE_TO_ARCHIVE";
 
 export const getList = () => {
-    let list = [{title:"kapusta",checked:false,archive:false}]
+    let list = [{title:"Kapusta",checked:false,archive:false,amount:2,id:"1"}]
 
     return dispatch => {
         dispatch({
@@ -11,4 +11,14 @@ export const getList = () => {
             payload:list
         });
     } 
+}
+
+export const changeToArchive = item => {
+    item.archive = true;
+    return dispatch=>{
+        dispatch({
+            type:CHANGE_TO_ARCHIVE,
+            payload:item
+        })
+    }
 }
