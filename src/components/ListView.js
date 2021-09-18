@@ -3,42 +3,21 @@ import {FlatList,Text,View,Dimensions,Animated} from 'react-native';
 import { styles } from '../styles/mainstyles';
 import { Swipeable } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
+import moment from 'moment';
 
 
-const {width,height} = Dimensions.get("screen");
 
-const RenderRight = (progress,dragX) => {
-
-    const trans = dragX.interpolate({
-        inputRange: [0, 50, 100, 101],
-        outputRange: [0, 0, 0, 0],
-      });
-    const Style = {
-        transform:[
-            {
-                translateX:trans
-            }
-        ]
-    }
-    return (
-            <Animated.View style={[Style,styles.item,styles.animatedContainer]}>
-                <AntDesign name="check" size={40} color="white" />
-            </Animated.View>
-    )
-}
-
-
-const RenderItem = ({item,index,archivize}) => {
+const RenderItem = ({item,index,archivize,renderFunction,renderIcon,renderColor}) => {
     
     return (
-        <Swipeable onSwipeableLeftOpen={()=>{archivize(item)}} renderLeftActions={RenderRight}>
+        <Swipeable onSwipeableLeftOpen={()=>{archivize(item)}} renderLeftActions={(progress,dragX)=>renderFunction(progress,dragX,renderIcon,renderColor)}>
         <View style={styles.item}>
             <Text style={{fontWeight:'600'}}>{item.title}</Text>
  
                 <View style={styles.amountView}>
                 
                     <Text style={{fontWeight:'200'}}>Amount: {item.amount}</Text>
-                    <Text>Time</Text>
+                    <Text>{moment(item.time).format("LT")}</Text>
 
                 </View>
             

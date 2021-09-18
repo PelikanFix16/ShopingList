@@ -18,7 +18,6 @@ export const styles = StyleSheet.create({
 
     },
     animatedContainer:{
-        backgroundColor:"#8afb65",
         alignItems:"center",
         justifyContent:"center"
     },

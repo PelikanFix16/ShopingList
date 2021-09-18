@@ -6,7 +6,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { getList,changeToArchive } from '../redux/actions';
 import RenderItem from '../components/ListView';
 import { ArchivizeDispatcher } from '../redux/dispatcher';
-
+import { RenderRight } from '../Utils/RenderFunctions/RenderRightArchivize';
 
 
 
@@ -33,7 +33,9 @@ export default function Home() {
 
     return(
         <SafeAreaView style={styles.container}>
-           <FlatList data={list} renderItem={({item,index})=><RenderItem archivize={handleArchive} item={item} index={index}/>}/>
+           <FlatList data={list} renderItem={({item,index})=>
+           <RenderItem renderIcon="check" renderColor="#8afb65" renderFunction={RenderRight} archivize={handleArchive} item={item} index={index}/>}
+           />
         </SafeAreaView>
     );
 
