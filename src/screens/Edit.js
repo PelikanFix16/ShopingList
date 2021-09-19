@@ -4,7 +4,7 @@ import { styles } from '../styles/mainstyles';
 import { useSelector } from 'react-redux';
 import Counter from '../components/Counter';
 import CircleButton from '../components/Button';
-import { EditItemDispatcher } from '../redux/dispatcher';
+import { EditItemDispatcher,DeleteItemDispatcher } from '../redux/dispatcher';
 import { navigate } from '../navigation/navigationRef';
 import { textChange } from '../Utils/TextChange';
 
@@ -41,13 +41,13 @@ const Edit = () => {
             {showAmount == true && <Counter setCounter={setCounter} counter={counter}/>}
             <View style={styles.editButtonContainer}>
             <View style={styles.editButtonView}>
-            <CircleButton iconName="md-return-down-back" size={40} color="black" add={()=>navigate("Home")}/>
+            <CircleButton iconName="md-return-down-back" size={40} color="#7092F3" add={()=>navigate("Home")}/>
             </View>
             {counter >= 1 && showAmount == true && 
             <View style={styles.editButtonView}>
-                <CircleButton iconName="pencil-outline" color="#878787" size={40} add={()=>toList(edit)}/></View>}
+                <CircleButton iconName="pencil-outline" color="#FEEE6C" size={40} add={()=>toList(edit)}/></View>}
             <View style={styles.editButtonView}>
-            <CircleButton iconName="trash-bin" size={40} color="black" add={()=>navigate("Home")}/>
+            <CircleButton iconName="trash-bin" size={40} color="#FF6E6B" add={()=>{DeleteItemDispatcher(edit);navigate("Home")}}/>
             </View>
 
             </View>

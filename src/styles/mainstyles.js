@@ -95,6 +95,16 @@ export const styles = StyleSheet.create({
         flexGrow:0,
         flexShrink:0,
         flexBasis:100
+    },
+    dateSortContainer:{
+        justifyContent:"center",
+        alignItems:"center",
+        padding:"10%"
+    },
+    dateSortButton:{
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"center"
     }
 
 

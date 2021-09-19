@@ -45,7 +45,7 @@ function listReducer(state=initialState,action){
 
         case DELETE_ITEM:
             
-                return {...state,archive:state.archive.filter(item=>item !== action.payload)}
+                return {...state,archive:state.archive.filter(item=>item !== action.payload),list:state.list.filter(item=>item !== action.payload)}
  
 
 

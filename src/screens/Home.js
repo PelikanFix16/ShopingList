@@ -8,7 +8,7 @@ import RenderItem, { swipeableRef } from '../components/ListView';
 import { ArchivizeDispatcher, GetEditItemDispatcher } from '../redux/dispatcher';
 import { RenderFunction } from '../Utils/RenderFunctions/RenderRightArchivize';
 import { navigate } from '../navigation/navigationRef';
-
+import DateSort from '../components/DateSort';
 
 export default function Home(props) {
 
@@ -42,6 +42,7 @@ export default function Home(props) {
 
     return(
         <SafeAreaView style={styles.container}>
+            <DateSort icon="caretdown" event={()=>{}}/>
            <FlatList data={list} renderItem={({item,index})=>
            <RenderItem renderIconLeft="check" renderColorLeft="#8afb65" 
            renderFunctionLeft={RenderFunction} onLeftOpen={handleArchive}
