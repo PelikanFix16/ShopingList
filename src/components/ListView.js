@@ -5,20 +5,24 @@ import { Swipeable } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
 import moment from 'moment';
 
-export let swipeableRef = null;
 
 
 const RenderItem = ({item,index,onLeftOpen,renderFunctionLeft,
     renderIconLeft,renderColorLeft,
     renderFunctionRight,renderIconRight,renderColorRight,onRightOpen}) => {
+        let swipeableRef = null;
+        const closeSwipeable = () => {
+            if(swipeableRef != null)
+                swipeableRef.close();
+        }
     
     return (
-        <Swipeable ref={ref=>{swipeableRef=ref;}} onSwipeableLeftOpen={()=>{onLeftOpen(item)}} 
+        <Swipeable ref={ref=>{swipeableRef=ref;}} onSwipeableLeftOpen={()=>{onLeftOpen(item);closeSwipeable()}} 
         renderLeftActions={(progress,dragX)=>renderFunctionLeft(
         progress,dragX,renderIconLeft,renderColorLeft)}
          renderRightActions={(progress,dragX)=>renderFunctionRight(
             progress,dragX,renderIconRight,renderColorRight)}                 
-            onSwipeableRightOpen={()=>{onRightOpen(item)}}
+            onSwipeableRightOpen={()=>{onRightOpen(item);closeSwipeable()}}
             >
         <View style={styles.item}>
             <Text style={{fontWeight:'600'}}>{item.title}</Text>

@@ -5,7 +5,7 @@ export const DELETE_FROM_ARCHIVE = "DELETE_FROM_ARCHIVE";
 export const GET_EDIT_ITEM = "GET_EDIT_ITEM";
 export const EDIT_ITEM = "EDIT_ITEM";
 export const DELETE_ITEM = "DELETE_ITEM";
-
+export const SORT_TYPE = "SORT_TYPE";
 
 
 export const getList = () => {
@@ -75,5 +75,12 @@ export const deleteItem = item => {
     }
 }
 
-
+export const sortType = sort_type => {
+    return dispatch=>{
+        dispatch({
+            type:SORT_TYPE,
+            payload:sort_type
+        })
+    }
+}
 
