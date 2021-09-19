@@ -4,15 +4,15 @@ import {styles} from '../styles/mainstyles';
 import { AntDesign,MaterialIcons } from '@expo/vector-icons'; 
 import { useSelector,useDispatch } from 'react-redux';
 import { getList,changeToArchive } from '../redux/actions';
-import RenderItem from '../components/ListView';
-import { ArchivizeDispatcher } from '../redux/dispatcher';
-import { RenderRight } from '../Utils/RenderFunctions/RenderRightArchivize';
+import RenderItem, { swipeableRef } from '../components/ListView';
+import { ArchivizeDispatcher, GetEditItemDispatcher } from '../redux/dispatcher';
+import { RenderFunction } from '../Utils/RenderFunctions/RenderRightArchivize';
+import { navigate } from '../navigation/navigationRef';
 
 
+export default function Home(props) {
 
-export default function Home() {
-
-    const {list,archive} = useSelector(state=>state.listReducer);
+    const {list,archive,edit} = useSelector(state=>state.listReducer);
     const dispatch = useDispatch();
     const fetchList = () => dispatch(getList());
 
@@ -20,13 +20,22 @@ export default function Home() {
     const handleArchive = item => {
         ArchivizeDispatcher(item);
     }
+
+    const editItem = item => {
+        GetEditItemDispatcher(item);
+        swipeableRef.close();
+        navigate("Edit",{})
+
+    }
    
 
     useEffect(()=>{
         fetchList();
+       
 
     },[])
 
+ 
 
 
 
@@ -34,7 +43,12 @@ export default function Home() {
     return(
         <SafeAreaView style={styles.container}>
            <FlatList data={list} renderItem={({item,index})=>
-           <RenderItem renderIcon="check" renderColor="#8afb65" renderFunction={RenderRight} archivize={handleArchive} item={item} index={index}/>}
+           <RenderItem renderIconLeft="check" renderColorLeft="#8afb65" 
+           renderFunctionLeft={RenderFunction} onLeftOpen={handleArchive}
+           renderIconRight="edit" renderColorRight="#FEEE6C" renderFunctionRight={RenderFunction}
+           onRightOpen={editItem}
+
+           item={item} index={index} />}
            />
         </SafeAreaView>
     );

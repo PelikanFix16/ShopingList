@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator,BottomTabBar} from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons,Ionicons } from '@expo/vector-icons';
 import Home from '../screens/Home';
 import Archive from '../screens/Archive';
 import Add from '../screens/Add';
+import Edit from '../screens/Edit';
 import { tabBarOptions } from '../styles/mainstyles';
 import { navigationRef } from './navigationRef';
 
@@ -25,7 +26,14 @@ export default function RootNavigaton(){
 
             <BottomNavigator.Navigator 
             initialRouteName="Home"
-            screenOptions={tabBarOptions}>
+            tabBar={ props=>
+                <BottomTabBar {...props} state={{...props.state, routes: props.state.routes.slice(0,4)}}></BottomTabBar>
+            }
+            screenOptions={tabBarOptions}
+            
+            
+            
+            >
 
 
                 <BottomNavigator.Screen 
@@ -45,21 +53,25 @@ export default function RootNavigaton(){
                     component={Home} />
 
                 <BottomNavigator.Screen 
+                
                   options={{headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="archive" color={color} size={size} />
                     )}}
                     name="Archive" 
-                    component={Archive} />
-
-                
-
-
-
-
+                    component={Archive} />      
+    
+            <BottomNavigator.Screen 
+                 
+                  options={{headerShown: false}}
+                    name="Edit" 
+                    component={Edit} />                
 
 
             </BottomNavigator.Navigator>
+
+            
+
 
         </NavigationContainer>
 

@@ -45,15 +45,15 @@ export const styles = StyleSheet.create({
 
     },
     circleButton:{
-        width:"50px",
-        height:"50px",
+        width:"120px",
+        height:"60px",
         position:"absolute",
-        bottom:"0px",
+        bottom:"50%",
         flex:1,
         justifyContent:"center",
         alignItems:"center",
-        borderRadius:100,
         padding:10,
+   
     },
     counterView:{
         flex:1,
@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
    
         justifyContent:"center",
         alignItems:"center",
-        height:"50%",
+        height:"10%",
       
 
     },

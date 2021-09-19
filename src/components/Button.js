@@ -6,19 +6,15 @@ import { Ionicons } from '@expo/vector-icons';
 
 const iconSelect = (icon,color,size) => {
  
-    switch(icon){
-        case "ADD":
-            return <Ionicons name="add" color={color} size={size}/>
-        default:
-            return <Ionicons name="add" color="white" size={30}/> 
-    }
+    
+    return <Ionicons name={icon} color={color} size={size}/>
 }
 
 
-const CircleButton = (props)=> {
+const CircleButton = ({add,iconName,color,size,text})=> {
     return(
-        <TouchableOpacity onPress={()=>{props.add()}} style={[styles.circleButton]}>
-            {iconSelect(props.iconName,props.color,props.size)}
+        <TouchableOpacity onPress={()=>{add()}} style={[styles.circleButton]}>
+            {iconSelect(iconName,color,size)}
         </TouchableOpacity>
     );
 

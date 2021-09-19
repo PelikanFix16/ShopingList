@@ -22,19 +22,19 @@ const decCounter = (setCounter,counter) => {
     }
 }
 
-const Counter = (props) => {
+const Counter = ({setCounter,counter}) => {
 
 
 
     return (
         <View style={styles.counterView}>
-            <TouchableOpacity onPress={()=>incCounter(props.setCounter,props.counter)} style={styles.counterButton}>
+            <TouchableOpacity onPress={()=>incCounter(setCounter,counter)} style={styles.counterButton}>
             <AntDesign name="pluscircleo" size={30} color="#a1a1a1" />
             </TouchableOpacity>
 
-            <Text style={styles.counterText}>{props.counter}</Text>
+            <Text style={styles.counterText}>{counter}</Text>
         
-            <TouchableOpacity onPress={()=>decCounter(props.setCounter,props.counter)} style={styles.counterButton}>
+            <TouchableOpacity onPress={()=>decCounter(setCounter,counter)} style={styles.counterButton}>
             <AntDesign name="minuscircleo" size={30} color="#a1a1a1" />
             </TouchableOpacity>
         </View>

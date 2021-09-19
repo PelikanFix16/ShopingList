@@ -4,8 +4,8 @@ import {styles} from '../styles/mainstyles';
 import RenderItem from '../components/ListView';
 import { useSelector } from 'react-redux';
 
-import { RenderRight } from '../Utils/RenderFunctions/RenderRightArchivize';
-import { DeleteArchiveDispatcher } from '../redux/dispatcher';
+import { RenderFunction } from '../Utils/RenderFunctions/RenderRightArchivize';
+import { DeleteArchiveDispatcher, DeleteItemDispatcher } from '../redux/dispatcher';
 
 
 export default function Archive() {
@@ -15,13 +15,20 @@ export default function Archive() {
     const handleArchive = item => {
         DeleteArchiveDispatcher(item);
     }
+    const deleteItem = item => {
+        DeleteItemDispatcher(item);
+    }
 
 
     return(
         <SafeAreaView style={styles.container}>
             
             <FlatList data={archive} renderItem={({item,index})=>
-           <RenderItem renderIcon="back" renderColor="#7092F3" renderFunction={RenderRight} archivize={handleArchive} item={item} index={index}/>}
+           <RenderItem renderIconLeft="back" renderColorLeft="#7092F3" renderFunctionLeft={RenderFunction} 
+           onLeftOpen={handleArchive} 
+           renderIconRight="delete" renderColorRight="#FF6E6B" renderFunctionRight={RenderFunction} 
+           onRightOpen={deleteItem}
+           item={item} index={index}/>}
            />
         </SafeAreaView>
     )

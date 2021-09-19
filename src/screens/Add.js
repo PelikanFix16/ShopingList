@@ -65,7 +65,7 @@ const Add = () => {
                         />
                     {showAmount == true && <Counter setCounter={setCounter} counter={counter}/>}
                     
-                      { counter >= 1 && <CircleButton iconName="ADD" color="#36a1ff" size={40} add={()=>toList(item)}/> }
+                      { counter >= 1 && <CircleButton iconName="add" color="#878787" size={50} add={()=>toList(item)}/> }
                 </View>
                 
 
