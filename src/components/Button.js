@@ -7,13 +7,13 @@ import { Ionicons } from '@expo/vector-icons';
 const iconSelect = (icon,color,size) => {
  
     
-    return <Ionicons name={icon} color={color} size={size}/>
+    return <Ionicons testID="icon" name={icon} color={color} size={size}/>
 }
 
 
-const CircleButton = ({add,iconName,color,size,text})=> {
+const CircleButton = ({add,iconName,color,size})=> {
     return(
-        <TouchableOpacity onPress={()=>{add()}} style={[styles.circleButton]}>
+        <TouchableOpacity testID="callButton" onPress={()=>{add()}} style={[styles.circleButton]}>
             {iconSelect(iconName,color,size)}
         </TouchableOpacity>
     );
