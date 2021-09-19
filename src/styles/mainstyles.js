@@ -31,8 +31,8 @@ export const styles = StyleSheet.create({
     },
     addTextStyle:{
         color:"#a6a6a6",
-        fontSize:"30px",
-        fontWeight:300,
+        fontSize:30,
+        fontWeight:"300",
 
     },
     textInput:{
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
        marginTop:"20px",
        textAlign:"center",
        width:"60%",
-       fontWeight:300
+       fontWeight:"300"
 
     },
     circleButton:{
@@ -67,8 +67,8 @@ export const styles = StyleSheet.create({
 
     },
     counterText:{
-        fontSize:"40px",
-        fontWeight:200,
+        fontSize:40,
+        fontWeight:"200",
         alignItems:"center",
         marginRight:"30px",
         marginLeft:"30px"
