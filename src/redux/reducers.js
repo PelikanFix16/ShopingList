@@ -26,7 +26,7 @@ function listReducer(state=initialState,action){
                 }
 
         case DELETE_FROM_ARCHIVE:
-            console.log(state);
+          
             return {
                 ...state,archive:state.archive.filter(item=>item !== action.payload),
                 list:[...state.list,action.payload]
@@ -36,7 +36,8 @@ function listReducer(state=initialState,action){
             return {...state,list:[...state.list,action.payload]}
 
         case GET_EDIT_ITEM:
-            return {...state,edit:action.payload}
+               const obj = Object.assign({},action.payload)
+            return {...state,edit:obj}
 
         case EDIT_ITEM:
             

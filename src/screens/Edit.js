@@ -1,13 +1,13 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { SafeAreaView,Text,TextInput,View} from 'react-native';
 import { styles } from '../styles/mainstyles';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch} from 'react-redux';
 import Counter from '../components/Counter';
 import CircleButton from '../components/Button';
 import { EditItemDispatcher,DeleteItemDispatcher } from '../redux/dispatcher';
 import { navigate } from '../navigation/navigationRef';
 import { textChange } from '../Utils/TextChange';
-
+import { getList } from '../redux/actions';
 
 
 const Edit = () => {
@@ -15,17 +15,35 @@ const Edit = () => {
     const {edit} = useSelector(state=>state.listReducer);
     const [counter,setCounter] = useState(edit.amount);
     const [title,setTitle] = useState(edit.title);
+    const dispatch = useDispatch();
+    const fetchList = () => dispatch(getList());
 
-    edit.amount = counter;
-    edit.title = title;
+
+
 
     const toList = item=>{
+       
+
+        edit.amount = counter;
+        edit.title = title;
+
         
         EditItemDispatcher(item);
         navigate("Home");
 
     }
+
+    useEffect(()=>{
+        fetchList();
+        setCounter(edit.amount);
+        setTitle(edit.title);
     
+
+    },[edit])
+
+    
+
+
 
     return(
         <SafeAreaView style={styles.container}>
@@ -57,4 +75,4 @@ const Edit = () => {
     )
 }
 
-export default Edit;
+export default React.memo(Edit);

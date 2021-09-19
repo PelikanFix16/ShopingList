@@ -43,6 +43,7 @@ export default function Home(props) {
 
 
 
+
     return(
         <SafeAreaView style={styles.container}>
             <DateSort icon={sort} event={sortItems}/>
