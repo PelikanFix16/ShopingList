@@ -10,19 +10,18 @@ import moment from 'moment';
 const RenderItem = ({item,index,onLeftOpen,renderFunctionLeft,
     renderIconLeft,renderColorLeft,
     renderFunctionRight,renderIconRight,renderColorRight,onRightOpen}) => {
-        let swipeableRef = null;
-        const closeSwipeable = () => {
-            if(swipeableRef != null)
-                swipeableRef.close();
-        }
-    
+        const swipeRef = React.useRef()
+
+    const closeSwipable = () => {
+        swipeRef?.current?.close()
+    }
     return (
-        <Swipeable ref={ref=>{swipeableRef=ref;}} onSwipeableLeftOpen={()=>{onLeftOpen(item);closeSwipeable()}} 
+        <Swipeable ref={swipeRef} onSwipeableLeftOpen={()=>{onLeftOpen(item);}} 
         renderLeftActions={(progress,dragX)=>renderFunctionLeft(
         progress,dragX,renderIconLeft,renderColorLeft)}
          renderRightActions={(progress,dragX)=>renderFunctionRight(
             progress,dragX,renderIconRight,renderColorRight)}                 
-            onSwipeableRightOpen={()=>{onRightOpen(item);closeSwipeable()}}
+            onSwipeableRightOpen={()=>{onRightOpen(item);closeSwipable()}}
             >
         <View style={styles.item}>
             <Text style={{fontWeight:'600'}}>{item.title}</Text>

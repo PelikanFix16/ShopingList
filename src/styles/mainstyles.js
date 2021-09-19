@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
         justifyContent:"flex-start",
         alignItems:"center",
         flex:1,
-        marginTop:"50px"
+        marginTop:50
 
         
     },
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
     textInput:{
        borderBottomWidth:1,
        borderColor:"#d9d9d9",
-       marginTop:"20px",
+       marginTop:20,
        textAlign:"center",
        width:"60%",
        fontWeight:"300"
@@ -70,8 +70,8 @@ export const styles = StyleSheet.create({
         fontSize:40,
         fontWeight:"200",
         alignItems:"center",
-        marginRight:"30px",
-        marginLeft:"30px"
+        marginRight:30,
+        marginLeft:30
     
        
         

@@ -41,7 +41,7 @@ const Add = () => {
                     <Text>Add New Item</Text>
                     <TextInput style={styles.textInput} 
                     placeholder="item name" 
-                    maxLength="30"
+                    maxLength={30}
                     onChangeText={text=>{
                         textChange(text,setShowAmount,setCounter);
                         setTitle(text);
