@@ -16,7 +16,7 @@ const textChange = (text,setStateButton,setCounter) => {
         setStateButton(true);
     }else{
         setStateButton(false);
-        setCounter(0);
+
     }
 }
 
