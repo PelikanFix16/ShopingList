@@ -32,7 +32,7 @@ const Edit = () => {
             <View style={styles.addContainer}>
             <Text>Edit Item</Text>
             <TextInput style={styles.textInput}  
-                    maxLength="30"
+                    maxLength={30}
                     onChangeText={text=>{
                         textChange(text,setShowAmount,setCounter);
                         setTitle(text);
