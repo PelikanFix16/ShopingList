@@ -45,27 +45,24 @@ export const styles = StyleSheet.create({
 
     },
     circleButton:{
-        width:"120px",
-        height:"60px",
-        position:"absolute",
-        bottom:"50%",
-        flex:1,
+        
+        marginTop:"10%",
         justifyContent:"center",
-        alignItems:"center",
-        padding:10,
+        alignItems:"center"
+
+
    
     },
     counterView:{
-        flex:1,
+
         flexDirection:"row",
-        marginTop:"50px"
+        marginTop:"10%",
 
     },
     counterButton:{
    
-        justifyContent:"center",
         alignItems:"center",
-        height:"10%",
+        justifyContent:"center"
       
 
     },
@@ -87,6 +84,17 @@ export const styles = StyleSheet.create({
     amountView:{
         flexDirection:"row",
         justifyContent:"space-between"
+    },
+    editButtonContainer:{
+        flexDirection:"row",
+        justifyContent:"center",
+        alignItems:"center"
+
+    },
+    editButtonView:{
+        flexGrow:0,
+        flexShrink:0,
+        flexBasis:100
     }
 
 

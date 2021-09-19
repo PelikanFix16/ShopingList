@@ -6,16 +6,7 @@ import Counter from '../components/Counter';
 import CircleButton from '../components/Button';
 import { EditItemDispatcher } from '../redux/dispatcher';
 import { navigate } from '../navigation/navigationRef';
-
-
-const textChange = (text,setStateButton,setCounter) => {
-    if(text.length > 0){
-        setStateButton(true);
-    }else{
-        setStateButton(false);
-        
-    }
-}
+import { textChange } from '../Utils/TextChange';
 
 
 
@@ -48,8 +39,19 @@ const Edit = () => {
                     }} value={title}
             />
             {showAmount == true && <Counter setCounter={setCounter} counter={counter}/>}
-            {counter >= 1 && showAmount == true && <CircleButton iconName="pencil-outline" color="#878787" size={40} add={()=>toList(edit)}/>}
+            <View style={styles.editButtonContainer}>
+            <View style={styles.editButtonView}>
             <CircleButton iconName="md-return-down-back" size={40} color="black" add={()=>navigate("Home")}/>
+            </View>
+            {counter >= 1 && showAmount == true && 
+            <View style={styles.editButtonView}>
+                <CircleButton iconName="pencil-outline" color="#878787" size={40} add={()=>toList(edit)}/></View>}
+            <View style={styles.editButtonView}>
+            <CircleButton iconName="trash-bin" size={40} color="black" add={()=>navigate("Home")}/>
+            </View>
+
+            </View>
+
             </View>
         </SafeAreaView>
     )

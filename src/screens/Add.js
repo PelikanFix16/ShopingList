@@ -4,21 +4,13 @@ import { styles } from '../styles/mainstyles';
 import CircleButton from '../components/Button';
 import Counter from '../components/Counter';
 import { addToList } from '../redux/actions';
-import uuidv4 from '../Utils/uuid';
 import { navigate } from '../navigation/navigationRef';
 import { AddDispatcher } from '../redux/dispatcher';
+import { CreateItem } from '../Utils/CreateItem';
+import { textChange } from '../Utils/TextChange';
 
 
 
-
-const textChange = (text,setStateButton,setCounter) => {
-    if(text.length > 0){
-        setStateButton(true);
-    }else{
-        setStateButton(false);
-
-    }
-}
 
 
 
@@ -30,23 +22,15 @@ const Add = () => {
     const [counter,setCounter] = useState(0);
     const [title,setTitle] = useState("");
 
-    let item = {
-        title:title,
-        amount:counter,
-        id:uuidv4(),
-        time: Date.now()
-    }
+    let item = CreateItem(title,counter);
+
     const toList = item=>{
         
-    
         AddDispatcher(item);
         setCounter(0);
         setTitle("");
         setShowAmount(false);
-
         navigate("Home",{});
-
-
         
     }   
 
@@ -65,7 +49,7 @@ const Add = () => {
                         />
                     {showAmount == true && <Counter setCounter={setCounter} counter={counter}/>}
                     
-                      { counter >= 1 && <CircleButton iconName="add" color="#878787" size={50} add={()=>toList(item)}/> }
+                      { counter >= 1 && showAmount == true && <CircleButton iconName="add" color="#878787" size={50} add={()=>toList(item)}/> }
                 </View>
                 
 
