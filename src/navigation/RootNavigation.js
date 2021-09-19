@@ -26,10 +26,22 @@ export default function RootNavigaton(){
 
             <BottomNavigator.Navigator 
             initialRouteName="Home"
-            tabBar={ props=>
-                <BottomTabBar {...props} state={{...props.state, routes: props.state.routes.slice(0,4)}}></BottomTabBar>
-            }
-            screenOptions={tabBarOptions}
+      
+            screenOptions={({ route }) => ({
+                tabBarStyle: {
+                    height: '8%',
+                    backgroundColor: '#1E1B26',
+                  },
+                  tabBarInactiveTintColor: '#2D3038',
+                  tabBarActiveTintColor: '#FFFFFF',
+                tabBarButton: [
+                  "Edit"
+                ].includes(route.name)
+                  ? () => {
+                      return null;
+                    }
+                  : undefined,
+              })}
             
             
             

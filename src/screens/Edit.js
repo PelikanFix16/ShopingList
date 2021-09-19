@@ -34,6 +34,7 @@ const Edit = () => {
         navigate("Home");
 
     }
+    
 
     return(
         <SafeAreaView style={styles.container}>
@@ -48,6 +49,7 @@ const Edit = () => {
             />
             {showAmount == true && <Counter setCounter={setCounter} counter={counter}/>}
             {counter >= 1 && showAmount == true && <CircleButton iconName="pencil-outline" color="#878787" size={40} add={()=>toList(edit)}/>}
+            <CircleButton iconName="md-return-down-back" size={40} color="black" add={()=>navigate("Home")}/>
             </View>
         </SafeAreaView>
     )
