@@ -16,7 +16,7 @@ export const RenderFunction = (progress,dragX,icon,color) => {
         ]
     }
     return (
-            <Animated.View style={[Style,styles.item,styles.animatedContainer,{backgroundColor:color}]}>
+            <Animated.View testID="swiperTest" style={[Style,styles.item,styles.animatedContainer,{backgroundColor:color}]}>
                 <AntDesign name={icon} size={40} color="white" />
             </Animated.View>
     )

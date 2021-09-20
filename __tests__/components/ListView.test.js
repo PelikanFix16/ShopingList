@@ -41,6 +41,14 @@ describe("<RenderItem/>",()=>{
         expect(item).not.toBeNull();
     })
 
+    it("Should find swipe elements",async ()=>{
+
+        const view = await li.queryAllByTestId('swiperTest');
+
+        expect(view.length).toBe(2);
+        
+    })
+
 
 
 
