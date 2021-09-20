@@ -13,7 +13,7 @@ const DateSort = ({icon,event}) => {
     }
 
     return (
-        <View style={styles.dateSortContainer}>
+        <View testID="DateSort" style={styles.dateSortContainer}>
             <TouchableOpacity testID="callButton" onPress={()=>{event()}} style={styles.dateSortButton}>
                 <Text testID="title" style={{fontSize:24,fontWeight:"200"}}>Date</Text>
                 <AntDesign testID="icon" style={{marginTop:5,marginLeft:"2%"}} name={iconName} size={10} color="black" />

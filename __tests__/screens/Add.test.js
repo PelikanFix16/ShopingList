@@ -1,17 +1,9 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { render, fireEvent,waitFor,act } from '@testing-library/react-native';
 import { CreateWithStore } from '../../src/Utils/TestHelpers/CreateWithStore';
 import Add from '../../src/screens/Add';
 import { store } from '../../src/redux/store';
-
-const nodeCrypto = require('crypto');
-window.crypto = {
-  getRandomValues: function (buffer) {
-    return nodeCrypto.randomFillSync(buffer);
-  }
-};
-
+require("../../src/Utils/mockGlobal");
 
 
 

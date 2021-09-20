@@ -39,6 +39,7 @@ export default function Home(props) {
     },[list])
 
     
+ 
 
 
 
@@ -47,7 +48,7 @@ export default function Home(props) {
     return(
         <SafeAreaView style={styles.container}>
             <DateSort icon={sort} event={sortItems}/>
-           <FlatList extraData={sort} data={list} renderItem={({item,index})=>
+           <FlatList testID="homeFlatList" extraData={sort} data={list} renderItem={({item,index})=>
            <RenderItem renderIconLeft="check" renderColorLeft="#8afb65" 
            renderFunctionLeft={RenderFunction} onLeftOpen={handleArchive}
            renderIconRight="edit" renderColorRight="#FEEE6C" renderFunctionRight={RenderFunction}

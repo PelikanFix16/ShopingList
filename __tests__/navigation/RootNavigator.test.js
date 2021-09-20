@@ -3,14 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { render, fireEvent,waitFor,act } from '@testing-library/react-native';
 import RootNavigaton from '../../src/navigation/RootNavigation';
 import { CreateWithStore } from '../../src/Utils/TestHelpers/CreateWithStore';
-
-
-const nodeCrypto = require('crypto');
-window.crypto = {
-  getRandomValues: function (buffer) {
-    return nodeCrypto.randomFillSync(buffer);
-  }
-};
+require("../../src/Utils/mockGlobal");
 
 
 
