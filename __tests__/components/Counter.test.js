@@ -58,8 +58,16 @@ describe("<Counter/>",()=>{
             expect(coun.queryByText("0")).not.toBeNull();
         })
     })
-    
+    describe("icon render",()=>{
+        it("should render icon plus",()=>{
+            expect(coun.getByTestId("iconPlus")).toBeTruthy();
+        })
+        it("should render icon minus",()=>{
+            expect(coun.getByTestId("iconMinus")).toBeTruthy();
+        })
 
+
+    })
 
 
 
