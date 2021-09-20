@@ -48,8 +48,8 @@ const Edit = () => {
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.addContainer}>
-            <Text>Edit Item</Text>
-            <TextInput style={styles.textInput}  
+            <Text testID="editTitle">Edit Item</Text>
+            <TextInput testID="editInput" style={styles.textInput}  
                     maxLength={30}
                     onChangeText={text=>{
                         textChange(text,setShowAmount,setCounter);

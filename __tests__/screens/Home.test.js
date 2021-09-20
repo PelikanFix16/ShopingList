@@ -37,15 +37,17 @@ describe("<Home/>",()=>{
 
         it("Should render one element in list",async ()=>{
             //props
-            const flatList = homeScreen.getByTestId("swipeTest");
+            const flatList = await homeScreen.getByTestId("swipeTest");
             expect(flatList).toBeTruthy();
         })
 
     })
 
-    it("Should move to archivize",()=>{
-        act(()=>{homeScreen.store.dispatch(changeToArchive(item))});
-        let element = homeScreen.queryByText("test");
-        expect(element).toBeNull();
+    describe("Actions",()=>{
+        it("Should move to archivize",async ()=>{
+            act(()=>{homeScreen.store.dispatch(changeToArchive(item))});
+            let element = await homeScreen.queryByText("test");
+            expect(element).toBeNull();
+        })
     })
 })
