@@ -28,13 +28,13 @@ const Counter = ({setCounter,counter}) => {
 
     return (
         <View style={styles.counterView}>
-            <TouchableOpacity onPress={()=>incCounter(setCounter,counter)} style={styles.counterButton}>
+            <TouchableOpacity testID="increment" onPress={()=>incCounter(setCounter,counter)} style={styles.counterButton}>
             <AntDesign name="pluscircleo" size={30} color="#a1a1a1" />
             </TouchableOpacity>
 
-            <Text style={styles.counterText}>{counter}</Text>
+            <Text testID="counterText" style={styles.counterText}>{counter}</Text>
         
-            <TouchableOpacity onPress={()=>decCounter(setCounter,counter)} style={styles.counterButton}>
+            <TouchableOpacity testID="decrement" onPress={()=>decCounter(setCounter,counter)} style={styles.counterButton}>
             <AntDesign name="minuscircleo" size={30} color="#a1a1a1" />
             </TouchableOpacity>
         </View>

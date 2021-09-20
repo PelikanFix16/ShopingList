@@ -14,7 +14,7 @@ const createCircleButton = (fn) => {
 
 describe("<CircleButton/>",()=>{
     let fn;
-    let btnl
+    let btn;
     beforeEach(()=>{
         fn = jest.fn();
         btn = createCircleButton(fn);
