@@ -21,3 +21,7 @@ const rootReducer = combineReducers({
 
 export const store = createStore(rootReducer,applyMiddleware(thunk));
 export const persistor = persistStore(store);
+
+export const createStoreRedux = (state) => {
+  return createStore(rootReducer,state,applyMiddleware(thunk));
+}

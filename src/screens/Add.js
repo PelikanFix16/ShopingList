@@ -38,7 +38,7 @@ const Add = () => {
     return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.addContainer}>
-                    <Text>Add New Item</Text>
+                    <Text testID="titleAddElement">Add New Item</Text>
                     <TextInput style={styles.textInput} 
                     placeholder="item name" 
                     maxLength={30}
