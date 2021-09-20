@@ -23,7 +23,7 @@ const RenderItem = ({item,index,onLeftOpen,renderFunctionLeft,
             progress,dragX,renderIconRight,renderColorRight)}                 
             onSwipeableRightOpen={()=>{onRightOpen(item);closeSwipable()}}
             >
-        <View style={styles.item}>
+        <View testID="swipeTest" style={styles.item}>
             <Text style={{fontWeight:'600'}}>{item.title}</Text>
  
                 <View style={styles.amountView}>
